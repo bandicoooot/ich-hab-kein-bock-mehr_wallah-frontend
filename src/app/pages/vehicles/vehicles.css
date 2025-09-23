@@ -1,0 +1,24 @@
+.vehicles-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.vehicles-container h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.vehicles-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vehicles-table th, .vehicles-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.vehicles-table th {
+  background-color: #f4f4f4;
+}

@@ -1,0 +1,28 @@
+.container {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 8px;
+}

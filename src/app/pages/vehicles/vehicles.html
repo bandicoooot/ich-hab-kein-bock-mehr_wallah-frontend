@@ -1,0 +1,33 @@
+<div class="vehicles-container">
+  <h1>Vehicles</h1>
+
+  <div class="toolbar">
+    <input [(ngModel)]="search" (ngModelChange)="applyFilters()" placeholder="Search brand/type/color..." />
+    <input [(ngModel)]="filterBrand" (ngModelChange)="applyFilters()" placeholder="Filter Brand" />
+    <select [(ngModel)]="filterStatus" (change)="applyFilters()">
+      <option value="">All Status</option>
+      <option value="Available">Available</option>
+      <option value="Reserved">Reserved</option>
+      <option value="Sold">Sold</option>
+    </select>
+    <button (click)="clearFilters()">Clear</button>
+    <button (click)="exportCsv()">Export CSV</button>
+  </div>
+
+  <table class="vehicles-table">
+    <thead>
+      <tr><th>ID</th><th>Brand</th><th>Type</th><th>FirstReg</th><th>Color</th><th>Features</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of vehicles">
+        <td>{{v.vehicleId}}</td>
+        <td>{{v.brand}}</td>
+        <td>{{v.type}}</td>
+        <td>{{v.firstRegistration | date}}</td>
+        <td>{{v.color}}</td>
+        <td>{{v.features?.join(', ')}}</td>
+        <td>{{v.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
