@@ -1,33 +1,22 @@
 <div class="vehicles-container">
-  <h1>Vehicles</h1>
+  <h1>🚗 Unsere Fahrzeuge</h1>
 
-  <div class="toolbar">
-    <input [(ngModel)]="search" (ngModelChange)="applyFilters()" placeholder="Search brand/type/color..." />
-    <input [(ngModel)]="filterBrand" (ngModelChange)="applyFilters()" placeholder="Filter Brand" />
-    <select [(ngModel)]="filterStatus" (change)="applyFilters()">
-      <option value="">All Status</option>
-      <option value="Available">Available</option>
-      <option value="Reserved">Reserved</option>
-      <option value="Sold">Sold</option>
+  <div class="filters">
+    <label for="status">Filter nach Status:</label>
+    <select id="status" (change)="filterByStatus($event)">
+      <option value="Alle">Alle</option>
+      <option value="Verfügbar">Verfügbar</option>
+      <option value="Reserviert">Reserviert</option>
+      <option value="Verkauft">Verkauft</option>
     </select>
-    <button (click)="clearFilters()">Clear</button>
-    <button (click)="exportCsv()">Export CSV</button>
   </div>
 
-  <table class="vehicles-table">
-    <thead>
-      <tr><th>ID</th><th>Brand</th><th>Type</th><th>FirstReg</th><th>Color</th><th>Features</th><th>Status</th></tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let v of vehicles">
-        <td>{{v.vehicleId}}</td>
-        <td>{{v.brand}}</td>
-        <td>{{v.type}}</td>
-        <td>{{v.firstRegistration | date}}</td>
-        <td>{{v.color}}</td>
-        <td>{{v.features?.join(', ')}}</td>
-        <td>{{v.status}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="vehicle-grid">
+    <div class="vehicle-card" *ngFor="let car of filteredVehicles">
+      <h2>{{ car.brand }} {{ car.type }}</h2>
+      <p><strong>Farbe:</strong> {{ car.color }}</p>
+      <p><strong>Ausstattung:</strong> {{ car.features }}</p>
+      <p class="status {{ car.status | lowercase }}"><strong>Status:</strong> {{ car.status }}</p>
+    </div>
+  </div>
 </div>

@@ -3,22 +3,57 @@
   font-family: Arial, sans-serif;
 }
 
-.vehicles-container h1 {
+.filters {
   margin-bottom: 20px;
-  color: #333;
 }
 
-.vehicles-table {
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.vehicle-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+}
+
+.vehicle-card img {
   width: 100%;
-  border-collapse: collapse;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-.vehicles-table th, .vehicles-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
+.status.verfügbar {
+  color: green;
 }
 
-.vehicles-table th {
-  background-color: #f4f4f4;
+.status.reserviert {
+  color: orange;
+}
+
+.status.verkauft {
+  color: red;
+}
+
+.details-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.details-btn:hover {
+  background: #0056b3;
 }
